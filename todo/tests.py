@@ -66,7 +66,7 @@ class TodoViewTestCase(TestCase):
 
     def test_index_post(self):
         client = Client()
-        data = {'title':'Test Task', 'due_at': '2024-06-30 23:59:59'}
+        data = {'title': 'Test Task', 'due_at': '2024-06-30 23:59:59'}
         response = client.post('/', data)
 
         self.assertEqual(response.status_code, 200)
@@ -98,4 +98,3 @@ class TodoViewTestCase(TestCase):
         self.assertEqual(response.templates[0].name, 'todo/index.html')
         self.assertEqual(response.context['tasks'][0], task1)
         self.assertEqual(response.context['tasks'][1], task2)
-        
